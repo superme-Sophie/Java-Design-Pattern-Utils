@@ -7,7 +7,8 @@ public class StrategyFactoryTest {
 
     @Test
     public void test(){
-        StrategyDistributor<StrategyEnums, StrategyAdv<InputParam,OutputParam>, InputParam, OutputParam> strategy = StrategyFactory.<StrategyEnums, StrategyAdv<InputParam,OutputParam>,InputParam, OutputParam>begin()
+        StrategyDistributor<StrategyEnums, StrategyAdv<InputParam,OutputParam>, InputParam, OutputParam> strategy =
+                StrategyFactory.<StrategyEnums, StrategyAdv<InputParam,OutputParam>,InputParam, OutputParam>begin()
                 .add(StrategyEnums.S1, new StrategyAdv1())
                 .add(StrategyEnums.S2, new StrategyAdv2())
                 .add(StrategyEnums.S3, new StrategyAdv3())
