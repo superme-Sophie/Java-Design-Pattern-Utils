@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class StateMachineTest {
 
     @Test
-    public void test(){
+    public void test() {
         StateMachine machine = new StateMachine();
         machine.next(State.S2);
         machine.next(State.S1, new Param("QSC"));

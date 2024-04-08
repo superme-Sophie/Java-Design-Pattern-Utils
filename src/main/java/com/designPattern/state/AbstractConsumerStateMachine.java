@@ -5,16 +5,16 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
-public abstract class AbstractParamFunctionStateMachine<State extends Enum<State>, Param> {
+public abstract class AbstractConsumerStateMachine<State extends Enum<State>, Param> {
 
     protected final Map<State, Map<State, Consumer<Param>>> graph = new ConcurrentHashMap<>();
     protected State current;
 
-    public AbstractParamFunctionStateMachine(State current) {
+    public AbstractConsumerStateMachine(State current) {
         this.current = current;
     }
 
-    public AbstractParamFunctionStateMachine<State,Param> insert(State begin, State end, Consumer<Param> function) {
+    public AbstractConsumerStateMachine<State, Param> insert(State begin, State end, Consumer<Param> function) {
         graph.putIfAbsent(begin, new HashMap<>());
         Map<State, Consumer<Param>> nextGraph = graph.get(begin);
         nextGraph.putIfAbsent(end, function);
@@ -30,6 +30,8 @@ public abstract class AbstractParamFunctionStateMachine<State extends Enum<State
             } else {
                 throw new IllegalArgumentException("illegal state " + state + " is not " + current.name() + " next state");
             }
+        } else {
+            throw new IllegalArgumentException("current state " + current + " has not next state");
         }
     }
 }
