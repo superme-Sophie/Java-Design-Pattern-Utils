@@ -1,7 +1,5 @@
 package com.designPattern.observer;
 
-import org.junit.jupiter.api.Test;
-
 public class ObserverManager extends AbstractObserverManager<DefaultMessage> {
 
     public ObserverManager() {
