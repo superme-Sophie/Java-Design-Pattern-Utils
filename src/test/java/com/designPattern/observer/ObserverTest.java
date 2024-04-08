@@ -1,5 +1,7 @@
 package com.designPattern.observer;
 
+import com.designPattern.observer.common.DefaultMessage;
+import com.designPattern.observer.common.ObEnums;
 import org.junit.jupiter.api.Test;
 
 public class ObserverTest {

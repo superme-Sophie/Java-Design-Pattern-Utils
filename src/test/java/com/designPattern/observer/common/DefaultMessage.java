@@ -1,5 +1,6 @@
-package com.designPattern.observer;
+package com.designPattern.observer.common;
 
+import com.designPattern.observer.common.Message;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
