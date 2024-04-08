@@ -9,11 +9,13 @@ public abstract class AbstractParamStateMachine<State extends Enum<State>, Param
     }
 
     public void next(State state, Param param) {
-        if (graph.get(current).contains(state)) {
-            change(current, state, param);
-            current = state;
-        } else {
-            throw new IllegalArgumentException();
+        if (graph.containsKey(current)) {
+            if (graph.get(current).contains(state)) {
+                change(current, state, param);
+                current = state;
+            } else {
+                throw new IllegalArgumentException();
+            }
         }
     }
 

@@ -16,6 +16,7 @@ public class StateMachineTest {
         } catch (IllegalArgumentException e) {
             log.error("异常状态转移", e);
         }
-
+        machine.next(State.S2);
+        machine.next(State.S3);
     }
 }

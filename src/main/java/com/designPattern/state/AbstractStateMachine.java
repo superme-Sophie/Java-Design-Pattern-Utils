@@ -22,11 +22,13 @@ public abstract class AbstractStateMachine<State extends Enum<State>> {
     }
 
     public void next(State state) {
-        if (graph.get(current).contains(state)) {
-            change(current, state);
-            current = state;
-        } else {
-            throw new IllegalArgumentException("illegal state " + state + " is not " + current.name() + " next state");
+        if (graph.containsKey(current)) {
+            if (graph.get(current).contains(state)) {
+                change(current, state);
+                current = state;
+            } else {
+                throw new IllegalArgumentException("illegal state " + state + " is not " + current.name() + " next state");
+            }
         }
     }
 
