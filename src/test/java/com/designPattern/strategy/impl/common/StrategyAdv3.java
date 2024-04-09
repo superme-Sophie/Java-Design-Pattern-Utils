@@ -1,7 +1,7 @@
 package com.designPattern.strategy.impl.common;
 
-import com.designPattern.strategy.InputParam;
-import com.designPattern.strategy.OutputParam;
+import com.designPattern.common.InputParam;
+import com.designPattern.common.OutputParam;
 
 public class StrategyAdv3 implements StrategyAdv<InputParam, OutputParam> {
     @Override

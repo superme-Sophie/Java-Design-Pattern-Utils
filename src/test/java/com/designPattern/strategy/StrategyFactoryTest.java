@@ -1,5 +1,7 @@
 package com.designPattern.strategy;
 
+import com.designPattern.common.InputParam;
+import com.designPattern.common.OutputParam;
 import com.designPattern.strategy.impl.common.*;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +9,7 @@ public class StrategyFactoryTest {
 
     @Test
     public void test(){
-        StrategyDistributor<StrategyEnums, StrategyAdv<InputParam,OutputParam>, InputParam, OutputParam> strategy =
+        StrategyDistributor<StrategyEnums, StrategyAdv<InputParam, OutputParam>, InputParam, OutputParam> strategy =
                 StrategyFactory.<StrategyEnums, StrategyAdv<InputParam,OutputParam>,InputParam, OutputParam>begin()
                 .add(StrategyEnums.S1, new StrategyAdv1())
                 .add(StrategyEnums.S2, new StrategyAdv2())
