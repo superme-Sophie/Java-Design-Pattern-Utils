@@ -1,7 +1,6 @@
 package com.designPattern.bridge.passivity;
 
 import com.designPattern.bridge.AbstractPassivityAbutment;
-import com.designPattern.common.InputParam;
 import com.designPattern.common.OutputParam;
 
 public class TelephoneSink extends AbstractPassivityAbutment<String, OutputParam> {
