@@ -12,7 +12,7 @@ import com.designPattern.common.OutputParam;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SendSmsCodeBridgeManager extends AbstractBridgeManager<InputParam, OutputParam, String, String, SendType, SmsCodeType> {
+public class SendSmsCodeBridgeManager extends AbstractBridgeManager<InputParam, String, String, OutputParam, SmsCodeType, SendType> {
 
     @Override
     protected Map<SendType, AbstractPassivityAbutment<String, OutputParam>> passivityAbutmentInstance() {
@@ -23,8 +23,8 @@ public class SendSmsCodeBridgeManager extends AbstractBridgeManager<InputParam, 
     }
 
     @Override
-    protected Map<SmsCodeType, AbstractInitiativeAbutment<InputParam, OutputParam, String, String>> initiativeAbutmentInstance() {
-        return new HashMap<SmsCodeType, AbstractInitiativeAbutment<InputParam, OutputParam, String, String>>() {{
+    protected Map<SmsCodeType, AbstractInitiativeAbutment<InputParam, String, String, OutputParam>> initiativeAbutmentInstance() {
+        return new HashMap<SmsCodeType, AbstractInitiativeAbutment<InputParam, String, String, OutputParam>>() {{
             put(SmsCodeType.login, new LoginSmsCode());
             put(SmsCodeType.register, new RegisterSmsCode());
         }};

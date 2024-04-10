@@ -2,21 +2,27 @@ package com.designPattern.bridge;
 
 /**
  * 桥接模式主动方
- * 需要再call方法中合适的时候主动调用another.JointPoint
+ * 需要在call方法中合适的时候主动调用被动方提供的
+ * another.JointPoint方法
+ *
+ * @param <CallerInput>  主动者的入参
+ * @param <CallerOutput> 主动者的出参
+ * @param <CalledInput>  被动者的入参
+ * @param <CalledOutput> 被动者的出参
  */
-public abstract class AbstractInitiativeAbutment<Input, Output, CallInput, CallOutput> {
+public abstract class AbstractInitiativeAbutment<CallerInput, CallerOutput, CalledInput, CalledOutput> {
 
     public AbstractInitiativeAbutment() {
 
     }
 
-    protected AbstractPassivityAbutment<CallInput, Output> another;
+    protected AbstractPassivityAbutment<CalledInput, CalledOutput> another;
 
 
-    public AbstractInitiativeAbutment<Input, Output, CallInput, CallOutput> bridge(AbstractPassivityAbutment<CallInput, Output> another) {
+    public AbstractInitiativeAbutment<CallerInput, CallerOutput, CalledInput, CalledOutput> bridge(AbstractPassivityAbutment<CalledInput, CalledOutput> another) {
         this.another = another;
         return this;
     }
 
-    public abstract CallOutput call(Input input);
+    public abstract CallerOutput call(CallerInput input);
 }
