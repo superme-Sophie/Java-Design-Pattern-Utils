@@ -1,6 +1,5 @@
 package com.designPattern.decorator;
 
-import jdk.internal.util.xml.impl.Input;
 
 /**
  * 修饰器抽象类
